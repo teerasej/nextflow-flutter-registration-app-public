@@ -1,3 +1,4 @@
+import 'package:demo_registation/pages/registration_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -35,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         body: TabBarView(
           children: [
-            Container(),
+            RegisterationPage(),
             Container(),
           ],
         ),
