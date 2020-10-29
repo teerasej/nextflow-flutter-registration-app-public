@@ -30,10 +30,27 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        body: TabBarView(
+          children: [
+            Container(),
+            Container(),
+          ],
         ),
-        body: Container());
+        backgroundColor: Colors.blue,
+        bottomNavigationBar: TabBar(
+          tabs: [
+            Tab(
+              text: 'หน้าลงทะเบียน',
+            ),
+            Tab(
+              text: 'รายชื่อ',
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
