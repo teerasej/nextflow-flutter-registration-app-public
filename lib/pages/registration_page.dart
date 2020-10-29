@@ -38,12 +38,19 @@ class _RegisterationPageState extends State<RegisterationPage> {
               Text('รูปถ่าย:'),
               Container(
                 padding: EdgeInsets.all(10),
-                child: Container(
-                  height: 150,
+                child: Ink(
                   color: Colors.grey[300],
-                  child: Center(
-                    child: Icon(
-                      Icons.camera_alt,
+                  child: InkWell(
+                    onTap: () {
+                      print('open camera');
+                    },
+                    child: Container(
+                      height: 150,
+                      child: Center(
+                        child: Icon(
+                          Icons.camera_alt,
+                        ),
+                      ),
                     ),
                   ),
                 ),
