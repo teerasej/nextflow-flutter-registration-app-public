@@ -17,53 +17,55 @@ class _RegisterationPageState extends State<RegisterationPage> {
       body: Container(
         padding: EdgeInsets.all(20),
         child: Form(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('ชื่อ'),
-              TextFormField(),
-              SizedBox(
-                height: 15,
-              ),
-              Text('นามสกุล'),
-              TextFormField(),
-              SizedBox(
-                height: 15,
-              ),
-              Text('Email:'),
-              TextFormField(),
-              SizedBox(
-                height: 15,
-              ),
-              Text('รูปถ่าย:'),
-              Container(
-                padding: EdgeInsets.all(10),
-                child: Ink(
-                  color: Colors.grey[300],
-                  child: InkWell(
-                    onTap: () {
-                      print('open camera');
-                    },
-                    child: Container(
-                      height: 150,
-                      child: Center(
-                        child: Icon(
-                          Icons.camera_alt,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('ชื่อ'),
+                TextFormField(),
+                SizedBox(
+                  height: 15,
+                ),
+                Text('นามสกุล'),
+                TextFormField(),
+                SizedBox(
+                  height: 15,
+                ),
+                Text('Email:'),
+                TextFormField(),
+                SizedBox(
+                  height: 15,
+                ),
+                Text('รูปถ่าย:'),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: Ink(
+                    color: Colors.grey[300],
+                    child: InkWell(
+                      onTap: () {
+                        print('open camera');
+                      },
+                      child: Container(
+                        height: 150,
+                        child: Center(
+                          child: Icon(
+                            Icons.camera_alt,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Spacer(),
-              SizedBox(
-                width: double.infinity,
-                child: RaisedButton(
-                  onPressed: () {},
-                  child: Text('ลงทะเบียน'),
-                ),
-              )
-            ],
+                SizedBox(height: 15),
+                SizedBox(
+                  width: double.infinity,
+                  child: RaisedButton(
+                    onPressed: () {},
+                    child: Text('ลงทะเบียน'),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
