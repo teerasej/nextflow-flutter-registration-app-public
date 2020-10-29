@@ -10,6 +10,44 @@ class RegisterationPage extends StatefulWidget {
 class _RegisterationPageState extends State<RegisterationPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ลงทะเบียน'),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(20),
+        child: Form(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('ชื่อ'),
+              TextFormField(),
+              SizedBox(
+                height: 15,
+              ),
+              Text('นามสกุล'),
+              TextFormField(),
+              SizedBox(
+                height: 15,
+              ),
+              Text('Email:'),
+              TextFormField(),
+              SizedBox(
+                height: 15,
+              ),
+              Text('รูปถ่าย:'),
+              Spacer(),
+              SizedBox(
+                width: double.infinity,
+                child: RaisedButton(
+                  onPressed: () {},
+                  child: Text('ลงทะเบียน'),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
