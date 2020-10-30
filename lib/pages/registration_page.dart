@@ -10,6 +10,7 @@ class RegisterationPage extends StatefulWidget {
 
 class _RegisterationPageState extends State<RegisterationPage> {
   final _formKey = GlobalKey<FormState>();
+  Profile _profile = Profile();
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +27,29 @@ class _RegisterationPageState extends State<RegisterationPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('ชื่อ'),
-                TextFormField(),
+                TextFormField(
+                  onSaved: (String firstName) {
+                    _profile.firstName = firstName;
+                  },
+                ),
                 SizedBox(
                   height: 15,
                 ),
                 Text('นามสกุล'),
-                TextFormField(),
+                TextFormField(
+                  onSaved: (String lastName) {
+                    _profile.lastName = lastName;
+                  },
+                ),
                 SizedBox(
                   height: 15,
                 ),
                 Text('Email:'),
-                TextFormField(),
+                TextFormField(
+                  onSaved: (String email) {
+                    _profile.email = email;
+                  },
+                ),
                 SizedBox(
                   height: 15,
                 ),
@@ -65,7 +78,12 @@ class _RegisterationPageState extends State<RegisterationPage> {
                   width: double.infinity,
                   child: RaisedButton(
                     onPressed: () {
+                      _formKey.currentState.save();
+
                       print('Form data saved.');
+                      print(
+                        '${_profile.firstName} ${_profile.lastName} ${_profile.email}',
+                      );
                     },
                     child: Text('ลงทะเบียน'),
                   ),
