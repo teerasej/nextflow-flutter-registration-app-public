@@ -1,3 +1,4 @@
+import 'package:demo_registation/models/profile.dart';
 import 'package:flutter/material.dart';
 
 class RegisterationPage extends StatefulWidget {
@@ -8,6 +9,8 @@ class RegisterationPage extends StatefulWidget {
 }
 
 class _RegisterationPageState extends State<RegisterationPage> {
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +20,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
       body: Container(
         padding: EdgeInsets.all(20),
         child: Form(
+          key: _formKey,
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +64,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
                 SizedBox(
                   width: double.infinity,
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      print('Form data saved.');
+                    },
                     child: Text('ลงทะเบียน'),
                   ),
                 )
