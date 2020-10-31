@@ -1,5 +1,6 @@
 import 'package:demo_registation/models/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 class RegisterationPage extends StatefulWidget {
   RegisterationPage({Key key}) : super(key: key);
@@ -28,6 +29,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
               children: [
                 Text('ชื่อ'),
                 TextFormField(
+                  validator: RequiredValidator(
+                    errorText: 'กรุณากรอกชื่อ',
+                  ),
                   onSaved: (String firstName) {
                     _profile.firstName = firstName;
                   },
@@ -37,6 +41,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
                 ),
                 Text('นามสกุล'),
                 TextFormField(
+                  validator: RequiredValidator(
+                    errorText: 'กรุณากรอกนามสกุล',
+                  ),
                   onSaved: (String lastName) {
                     _profile.lastName = lastName;
                   },
@@ -78,12 +85,14 @@ class _RegisterationPageState extends State<RegisterationPage> {
                   width: double.infinity,
                   child: RaisedButton(
                     onPressed: () {
-                      _formKey.currentState.save();
+                      if (_formKey.currentState.validate()) {
+                        _formKey.currentState.save();
 
-                      print('Form data saved.');
-                      print(
-                        '${_profile.firstName} ${_profile.lastName} ${_profile.email}',
-                      );
+                        print('Form data saved.');
+                        print(
+                          '${_profile.firstName} ${_profile.lastName} ${_profile.email}',
+                        );
+                      }
                     },
                     child: Text('ลงทะเบียน'),
                   ),
