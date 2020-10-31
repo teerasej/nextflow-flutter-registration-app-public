@@ -1,5 +1,6 @@
 import 'package:demo_registation/models/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
 class RegisterationPage extends StatefulWidget {
@@ -53,6 +54,10 @@ class _RegisterationPageState extends State<RegisterationPage> {
                 ),
                 Text('Email:'),
                 TextFormField(
+                  validator: EmailValidator(
+                    errorText: 'กรุณากรอกอีเมลล์ให้ถูกต้อง',
+                  ),
+                  keyboardType: TextInputType.emailAddress,
                   onSaved: (String email) {
                     _profile.email = email;
                   },
