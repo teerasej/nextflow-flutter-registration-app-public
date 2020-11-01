@@ -106,6 +106,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
                           'last_name': _profile.lastName,
                           'email': _profile.email
                         });
+
+                        _formKey.currentState.reset();
                       }
                     },
                     child: Text('ลงทะเบียน'),
