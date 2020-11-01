@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "991798883115",
+    "firebase_url": "https://regispad-667eb.firebaseio.com",
+    "project_id": "regispad-667eb",
+    "storage_bucket": "regispad-667eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991798883115:android:5e5ab9474e1c4aec5d0b6e",
+        "android_client_info": {
+          "package_name": "th.in.nextflow.flutter.demo.registerpad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991798883115-75bmapkv07fh3j0gm5uv59c45dbcvpfj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClyYK4zUtHvdQYcaKwOwnVPV88jSa7Ybc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "991798883115-75bmapkv07fh3j0gm5uv59c45dbcvpfj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
