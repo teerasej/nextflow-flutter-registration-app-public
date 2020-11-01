@@ -2,6 +2,7 @@ import 'package:demo_registation/models/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class RegisterationPage extends StatefulWidget {
   RegisterationPage({Key key}) : super(key: key);
@@ -13,6 +14,8 @@ class RegisterationPage extends StatefulWidget {
 class _RegisterationPageState extends State<RegisterationPage> {
   final _formKey = GlobalKey<FormState>();
   Profile _profile = Profile();
+  CollectionReference _profilesCollection =
+      FirebaseFirestore.instance.collection('profilesCollection');
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +92,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                 SizedBox(
                   width: double.infinity,
                   child: RaisedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();
 
@@ -97,6 +100,12 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         print(
                           '${_profile.firstName} ${_profile.lastName} ${_profile.email}',
                         );
+
+                        var document = await _profilesCollection.add({
+                          'first_name': _profile.firstName,
+                          'last_name': _profile.lastName,
+                          'email': _profile.email
+                        });
                       }
                     },
                     child: Text('ลงทะเบียน'),
