@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:demo_registation/models/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:image_picker/image_picker.dart';
 
 class RegisterationPage extends StatefulWidget {
   RegisterationPage({Key key}) : super(key: key);
@@ -16,6 +19,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
   Profile _profile = Profile();
   CollectionReference _profilesCollection =
       FirebaseFirestore.instance.collection('profiles');
+
+  File _selectedImageFile;
+  final _picker = ImagePicker();
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +83,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
                     child: InkWell(
                       onTap: () {
                         print('open camera');
+                        getImage();
                       },
                       child: Container(
                         height: 150,
@@ -120,5 +127,10 @@ class _RegisterationPageState extends State<RegisterationPage> {
         ),
       ),
     );
+  }
+
+  Future getImage() async {
+    final selectedFile = await _picker.getImage(source: ImageSource.camera);
+    _selectedImageFile = File(selectedFile.path);
   }
 }
