@@ -40,7 +40,7 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "th.in.nextflow.flutter.demo.registerpad"
-        minSdkVersion 21
+        minSdkVersion 16
         targetSdkVersion 29
         multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
