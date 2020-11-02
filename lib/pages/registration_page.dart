@@ -15,7 +15,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
   final _formKey = GlobalKey<FormState>();
   Profile _profile = Profile();
   CollectionReference _profilesCollection =
-      FirebaseFirestore.instance.collection('profilesCollection');
+      FirebaseFirestore.instance.collection('profiles');
 
   @override
   Widget build(BuildContext context) {
