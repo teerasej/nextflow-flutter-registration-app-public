@@ -57,9 +57,10 @@ class _RegisterationPageState extends State<RegisterationPage> {
                 ),
                 Text('Email:'),
                 TextFormField(
-                  validator: EmailValidator(
-                    errorText: 'กรุณากรอกอีเมลล์ให้ถูกต้อง',
-                  ),
+                  validator: MultiValidator([
+                    RequiredValidator(errorText: 'กรุณากรอก Email'),
+                    EmailValidator(errorText: 'กรุณากรอกอีเมลล์ให้ถูกต้อง'),
+                  ]),
                   keyboardType: TextInputType.emailAddress,
                   onSaved: (String email) {
                     _profile.email = email;
